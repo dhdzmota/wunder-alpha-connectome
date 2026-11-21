@@ -1,0 +1,17 @@
+{
+ "name": "final_sub26a",
+ "comment": "Final submission (sub26a): public 0.66502, private 0.67220. One route per tick regime; every route blends a regime specialist minGRU (tick-class head) with the shared SSM and TCN, all fine-tuned on valid. Routes 0 and 1 add a row-level LightGBM stack.",
+ "ema_spans": [2000],
+ "quant_bits": 16,
+ "w_spec": 0.5,
+ "ssm_tcn_blend": [[0.35, 0.35], [0.35, 0.30]],
+ "ssm": "ft_ssm16_c3_st_mix4_sa8_full",
+ "tcn": "ft_tcn64_ema_c3_st16_mix4_sa8_full",
+ "routes": {
+  "0": {"spec": "ft_mingru_ema_cls0_st_mix4_sa8_full", "stack": "stack_v3/stack_r0.npz"},
+  "1": {"spec": "ft_mingru_ema_cls1_st_mix4_sa8_full", "stack": "stack_v3/stack_r1.npz"},
+  "2": {"spec": "ft_mingru_ema_cls2_mix4_sa8_full"},
+  "3": {"spec": "ft_mingru_ema_cls3_la25_mix4_sa8_full"}
+ },
+ "detector": "regime/detector.npz"
+}

@@ -1,0 +1,12 @@
+datasets/
+._*
+__pycache__/
+*.parquet
+*.npy
+*.npz
+artifacts/
+*.zip
+.ipynb_checkpoints/
+.idea/
+.diskcheck.txt
+submissions/
